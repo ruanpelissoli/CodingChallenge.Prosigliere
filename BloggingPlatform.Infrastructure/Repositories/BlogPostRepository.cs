@@ -18,7 +18,9 @@ internal class BlogPostRepository : IBlogPostRepository
     }
 
     public async Task<IEnumerable<BlogPost>> GetAllAsync(CancellationToken cancellationToken = default) =>
-        await _dbContext.ToListAsync(cancellationToken);
+        await _dbContext
+           .Include(i => i.Comments)
+           .ToListAsync(cancellationToken);
 
     public async Task<BlogPost?> GetByIdAsync(BlogPostId id, CancellationToken cancellationToken = default) =>
         await _dbContext

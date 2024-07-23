@@ -4,7 +4,7 @@ using BloggingPlatform.Domain.Messaging;
 
 namespace BloggingPlatform.Application.BlogPosts;
 public record GetPostsQuery() : IQuery<IEnumerable<GetPostsQueryResponse>>;
-public record GetPostsQueryResponse(Guid Id, string Title, string Content);
+public record GetPostsQueryResponse(Guid Id, string Title, string Content, int Comments);
 
 internal sealed class GetPostsQueryHandler(
     IBlogPostRepository _blogPostRepository)
@@ -19,7 +19,7 @@ internal sealed class GetPostsQueryHandler(
 
         var response = posts.Select(s =>
         {
-            return new GetPostsQueryResponse(s.Id.Value, s.Title, s.Content);
+            return new GetPostsQueryResponse(s.Id.Value, s.Title, s.Content, s.Comments.Count());
         });
 
         return Result.Success(response);
