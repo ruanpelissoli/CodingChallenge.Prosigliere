@@ -10,9 +10,9 @@ Steps to run the project:
 3. Run `docker-compose up` command to start the containers
 4. At this point we should have the api, redis and postgresql running
 5. Access the application at `http://localhost:5029/swagger/index.html`
-6. It is possible to make http calls from BloggingPlatform.API.http file inside the project BloggingPlatform.API
+6. It is also possible to make http calls from BloggingPlatform.API.http file inside the project BloggingPlatform.API
 
-TODO:
+TODOs if I had more time:
 Add Users
 Authentication
 Authorization
