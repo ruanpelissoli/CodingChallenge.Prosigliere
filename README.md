@@ -13,11 +13,13 @@ Steps to run the project:
 6. It is also possible to make http calls from BloggingPlatform.API.http file inside the project BloggingPlatform.API
 
 TODOs if I had more time:
-Add Users
-Authentication
-Authorization
-Auditable Entities
-Configure CORS
-Add message queue with mass transit and rabbitmq
-Integration tests
-CI/CD files
+- Add Users
+- Authentication
+- Authorization
+- Auditable Entities
+- Configure CORS
+- Add message queue with mass transit and rabbitmq
+- Integration tests
+- CI/CD files
+
+If you have any questions, let me know.
