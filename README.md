@@ -1,6 +1,7 @@
 # CodingChallenge.Prosigliere
 
-** THIS PROJECT IS OVER ENGINEERED FOR THE PURPOSE OF DEMONSTRATING MY SKILLS **
+**THIS PROJECT IS OVER ENGINEERED FOR THE PURPOSE OF DEMONSTRATING MY SKILLS**
+
 I know this project has a small scope, but I wanted to demonstrate my skills in a more complex project and I hope this does not backfires. Have fun.
 
 Steps to run the project:
