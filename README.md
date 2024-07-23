@@ -20,3 +20,4 @@ Auditable Entities
 Configure CORS
 Add message queue with mass transit and rabbitmq
 Integration tests
+CI/CD files
