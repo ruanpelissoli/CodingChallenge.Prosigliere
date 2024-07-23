@@ -1,22 +1,24 @@
 ﻿using BloggingPlatform.Application.Comments;
 using Carter;
-using Mapster;
 using MediatR;
+using Microsoft.AspNetCore.Mvc;
 
 namespace BloggingPlatform.API.Modules;
 
 public class CommentsModule : CarterModule
 {
-    public CommentsModule() : base("api/posts/{postId}/comments")
+    public CommentsModule() : base("api/posts/{blogPostId}/comments")
     {
         WithTags("Comments");
     }
 
     public override void AddRoutes(IEndpointRouteBuilder app)
     {
-        app.MapPost("/", async (CreateCommentRequest request, ISender sender, CancellationToken cancellation) =>
+        app.MapPost("/", async (
+            Guid blogPostId,
+            [FromBody] CreateCommentRequest request, ISender sender, CancellationToken cancellation) =>
         {
-            var command = request.Adapt<CreateCommentCommand>();
+            var command = new CreateCommentCommand(blogPostId, request.Text);
 
             var result = await sender.Send(command, cancellation);
 

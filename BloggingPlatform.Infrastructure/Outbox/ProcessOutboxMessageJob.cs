@@ -84,7 +84,7 @@ internal sealed class ProcessOutboxMessageJob : IJob
             WHERE processed_on_utc IS NULL
             ORDER by occurred_on_utc
             LIMIT {_outboxOptions.BatchSize}
-            FOR UPDATE";
+            FOR UPDATE SKIP LOCKED"; //Lock picked up messages, for concurrency
 
         var outboxMessages = await connection.QueryAsync<OutboxMessageResponse>(sql, transaction: transaction);
 

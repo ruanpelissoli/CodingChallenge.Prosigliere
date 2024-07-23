@@ -16,24 +16,20 @@ public class CreateBlogPostCommandValidator : AbstractValidator<CreateBlogPostCo
     {
         RuleFor(x => x.Title)
             .NotEmpty()
+            .NotNull()
             .MaximumLength(200);
 
         RuleFor(x => x.Content)
-            .NotEmpty();
+            .NotEmpty()
+            .NotNull();
     }
 }
 
-public class CreateBlogPostCommandHandler : ICommandHandler<CreateBlogPostCommand, CreateBlogPostResponse>
+internal sealed class CreateBlogPostCommandHandler(
+    IBlogPostRepository _blogPostRepository,
+    IUnitOfWork _unitOfWork)
+    : ICommandHandler<CreateBlogPostCommand, CreateBlogPostResponse>
 {
-    private readonly IBlogPostRepository _blogPostRepository;
-    private readonly IUnitOfWork _unitOfWork;
-
-    public CreateBlogPostCommandHandler(IBlogPostRepository blogPostRepository, IUnitOfWork unitOfWork)
-    {
-        _blogPostRepository = blogPostRepository;
-        _unitOfWork = unitOfWork;
-    }
-
     public async Task<Result<CreateBlogPostResponse>> Handle(CreateBlogPostCommand request, CancellationToken cancellationToken)
     {
         var blogPost = BlogPost.Draft(request.Title, request.Content);

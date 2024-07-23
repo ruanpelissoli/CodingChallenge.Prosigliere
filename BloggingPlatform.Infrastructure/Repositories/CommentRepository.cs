@@ -1,20 +1,27 @@
-﻿using BloggingPlatform.Domain.Comments;
+﻿using BloggingPlatform.Domain.BlogPosts;
+using BloggingPlatform.Domain.Comments;
+using BloggingPlatform.Infrastructure.Database;
+using Microsoft.EntityFrameworkCore;
 
 namespace BloggingPlatform.Infrastructure.Repositories;
 internal class CommentRepository : ICommentRepository
 {
-    public Task AddAsync(Comment entity)
+    private readonly DbSet<Comment> _dbContext;
+
+    public CommentRepository(ApplicationDbContext dbContext)
     {
-        throw new NotImplementedException();
+        _dbContext = dbContext.Set<Comment>();
     }
 
-    public Task<List<Comment>> GetAllAsync(CancellationToken cancellationToken = default)
+    public async Task AddAsync(Comment entity)
     {
-        throw new NotImplementedException();
+        await _dbContext.AddAsync(entity);
     }
 
-    public Task<Comment?> GetByIdAsync(Guid id, CancellationToken cancellationToken = default)
-    {
-        throw new NotImplementedException();
-    }
+    public async Task<IEnumerable<Comment>> GetAllCommentsAsync(BlogPostId blogPostId) =>
+        await _dbContext.Where(w => w.BlogPostId == blogPostId).ToListAsync();
+
+    public async Task<Comment?> GetByIdAsync(CommentId id, CancellationToken cancellationToken = default) =>
+        await _dbContext
+            .FirstOrDefaultAsync(w => w.Id == id, cancellationToken);
 }

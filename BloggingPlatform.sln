@@ -11,6 +11,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BloggingPlatform.Domain", "
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BloggingPlatform.Infrastructure", "BloggingPlatform.Infrastructure\BloggingPlatform.Infrastructure.csproj", "{0C30800C-11A1-4E57-A570-B8FF4FE8D616}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BloggingPlatform.Tests", "BloggingPlatform.Tests\BloggingPlatform.Tests.csproj", "{2EDBE033-3B7D-4FA0-AD64-E5B2A3CE2830}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{0C30800C-11A1-4E57-A570-B8FF4FE8D616}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0C30800C-11A1-4E57-A570-B8FF4FE8D616}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0C30800C-11A1-4E57-A570-B8FF4FE8D616}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2EDBE033-3B7D-4FA0-AD64-E5B2A3CE2830}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2EDBE033-3B7D-4FA0-AD64-E5B2A3CE2830}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2EDBE033-3B7D-4FA0-AD64-E5B2A3CE2830}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2EDBE033-3B7D-4FA0-AD64-E5B2A3CE2830}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

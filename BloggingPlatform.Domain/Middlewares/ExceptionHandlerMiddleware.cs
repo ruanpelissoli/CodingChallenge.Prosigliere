@@ -21,11 +21,20 @@ internal sealed class ExceptionHandlerMiddleware : IExceptionHandler
         _logger.LogError(
             exception, "Exception occurred: {Message}", exception.Message);
 
+        var exceptionDetails = GetExceptionDetails(exception);
+
         var problemDetails = new ProblemDetails
         {
-            Status = StatusCodes.Status500InternalServerError,
-            Title = "Server error"
+            Status = exceptionDetails.Status,
+            Type = exceptionDetails.Type,
+            Title = exceptionDetails.Title,
+            Detail = exceptionDetails.Detail,
         };
+
+        if (exceptionDetails.Errors != null)
+        {
+            problemDetails.Extensions["errors"] = exceptionDetails.Errors;
+        }
 
         httpContext.Response.StatusCode = problemDetails.Status.Value;
 
@@ -34,6 +43,32 @@ internal sealed class ExceptionHandlerMiddleware : IExceptionHandler
 
         return true;
     }
+
+    private static ExceptionDetails GetExceptionDetails(Exception exception)
+    {
+        return exception switch
+        {
+            ValidationException validationException => new ExceptionDetails(
+                StatusCodes.Status400BadRequest,
+                "ValidationFailure",
+                "Validation Error",
+                "One or more validation errors occurred",
+                validationException.Errors),
+            _ => new ExceptionDetails(
+                StatusCodes.Status500InternalServerError,
+                "InternalServerError",
+                "Internal Server Error",
+                "An unhandled error occurred",
+                null)
+        };
+    }
+
+    internal record ExceptionDetails(
+        int Status,
+        string Type,
+        string Title,
+        string Detail,
+        IEnumerable<object>? Errors);
 }
 
 public sealed class ValidationError

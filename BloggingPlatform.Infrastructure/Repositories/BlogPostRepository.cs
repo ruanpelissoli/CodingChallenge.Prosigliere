@@ -17,13 +17,11 @@ internal class BlogPostRepository : IBlogPostRepository
         await _dbContext.AddAsync(entity);
     }
 
-    public Task<List<BlogPost>> GetAllAsync(CancellationToken cancellationToken = default)
-    {
-        throw new NotImplementedException();
-    }
+    public async Task<IEnumerable<BlogPost>> GetAllAsync(CancellationToken cancellationToken = default) =>
+        await _dbContext.ToListAsync(cancellationToken);
 
-    public Task<BlogPost?> GetByIdAsync(Guid id, CancellationToken cancellationToken = default)
-    {
-        throw new NotImplementedException();
-    }
+    public async Task<BlogPost?> GetByIdAsync(BlogPostId id, CancellationToken cancellationToken = default) =>
+        await _dbContext
+            .Include(i => i.Comments)
+            .FirstOrDefaultAsync(w => w.Id == id, cancellationToken);
 }

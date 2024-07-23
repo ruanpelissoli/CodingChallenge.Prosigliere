@@ -1,6 +1,22 @@
-@BloggingPlatform.API_HostAddress = http://localhost:5029
+@API_HostAddress = http://localhost:5029/api
+### Get all blog posts
+GET {{API_HostAddress}}/posts/
 
-GET {{BloggingPlatform.API_HostAddress}}/weatherforecast/
-Accept: application/json
+### Get a specific blog post by ID
+GET {{API_HostAddress}}/posts/95809aa2-2572-4770-83a1-b1ef9d74196e
 
-###
+### Create a new blog post
+POST {{API_HostAddress}}/posts/
+Content-Type: application/json
+
+{
+  "content": "This is a sample blog post content 2."
+}
+
+### Create a new comment for a blog post
+POST {{API_HostAddress}}/posts/95809aa2-2572-4770-83a1-b1ef9d74196e/comments
+Content-Type: application/json
+
+{
+  "text": "This is a sample comment content."
+}

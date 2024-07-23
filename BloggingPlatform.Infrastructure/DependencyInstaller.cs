@@ -2,6 +2,7 @@
 using BloggingPlatform.Domain.BlogPosts;
 using BloggingPlatform.Domain.Comments;
 using BloggingPlatform.Domain.DI;
+using BloggingPlatform.Infrastructure.Cache;
 using BloggingPlatform.Infrastructure.Clock;
 using BloggingPlatform.Infrastructure.Database;
 using BloggingPlatform.Infrastructure.Outbox;
@@ -22,6 +23,7 @@ public class DependencyInstaller : IDependencyInjectionInstaller
 
         AddPersistence(services, configuration);
         AddBackgroundJobs(services, configuration);
+        AddCacheServer(services, configuration);
     }
 
     private static void AddPersistence(IServiceCollection services, IConfiguration configuration)
@@ -53,6 +55,17 @@ public class DependencyInstaller : IDependencyInjectionInstaller
         services.AddQuartzHostedService(options => options.WaitForJobsToComplete = true);
 
         services.ConfigureOptions<ProcessOutboxMessagesJobSetup>();
+    }
+
+    private static void AddCacheServer(IServiceCollection services, IConfiguration configuration)
+    {
+        services.AddScoped<ICacheLayer, RedisCache>();
+        services.Decorate<IBlogPostRepository, CachedBlogPostRepository>();
+
+        services.AddStackExchangeRedisCache(options =>
+        {
+            options.Configuration = configuration["Redis:ConnectionString"];
+        });
     }
 
 }

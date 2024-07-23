@@ -6,13 +6,14 @@ namespace BloggingPlatform.Domain.BlogPosts;
 
 public class BlogPost : Entity<BlogPostId>
 {
-    private BlogPost(string title, string content, EBlogStatus status) : base(BlogPostId.New())
+    public BlogPost(string title, string content, EBlogStatus status) : base(BlogPostId.New())
     {
         Title = title;
         Content = content;
+        Status = status;
     }
 
-    private BlogPost() { }
+    protected BlogPost() { }
 
     public string Title { get; private set; }
     public string Content { get; private set; }
@@ -23,7 +24,7 @@ public class BlogPost : Entity<BlogPostId>
     {
         var blogPost = new BlogPost(title, content, EBlogStatus.Draft);
 
-        blogPost.RaiseDomainEvent(new BlogPostCreatedDomainEvent(blogPost.Id));
+        blogPost.RaiseDomainEvent(new BlogPostCreatedDomainEvent(blogPost));
 
         return blogPost;
     }
