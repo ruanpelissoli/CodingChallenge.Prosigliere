@@ -1,7 +1,7 @@
 ﻿using BloggingPlatform.Domain.Abstractions;
-using BloggingPlatform.Domain.BlogPosts;
-using BloggingPlatform.Domain.Comments;
 using BloggingPlatform.Domain.DI;
+using BloggingPlatform.Domain.Features.BlogPosts;
+using BloggingPlatform.Domain.Features.Comments;
 using BloggingPlatform.Infrastructure.Cache;
 using BloggingPlatform.Infrastructure.Clock;
 using BloggingPlatform.Infrastructure.Database;

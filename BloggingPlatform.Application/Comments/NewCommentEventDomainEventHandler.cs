@@ -1,4 +1,4 @@
-﻿using BloggingPlatform.Domain.Comments.Events;
+﻿using BloggingPlatform.Domain.Features.Comments.Events;
 using BloggingPlatform.Domain.Messaging;
 using Microsoft.Extensions.Logging;
 

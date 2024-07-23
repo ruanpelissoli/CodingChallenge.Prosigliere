@@ -1,6 +1,6 @@
 ﻿using BloggingPlatform.Domain.Abstractions;
-using BloggingPlatform.Domain.BlogPosts;
 using BloggingPlatform.Domain.Common;
+using BloggingPlatform.Domain.Features.BlogPosts;
 using BloggingPlatform.Domain.Messaging;
 using FluentValidation;
 

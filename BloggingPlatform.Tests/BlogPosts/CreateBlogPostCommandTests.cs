@@ -1,6 +1,6 @@
 ﻿using BloggingPlatform.Application.BlogPosts;
 using BloggingPlatform.Domain.Abstractions;
-using BloggingPlatform.Domain.BlogPosts;
+using BloggingPlatform.Domain.Features.BlogPosts;
 using FluentAssertions;
 using Moq;
 

@@ -1,5 +1,5 @@
-﻿using BloggingPlatform.Domain.BlogPosts;
-using BloggingPlatform.Domain.Comments;
+﻿using BloggingPlatform.Domain.Features.BlogPosts;
+using BloggingPlatform.Domain.Features.Comments;
 using BloggingPlatform.Infrastructure.Database;
 using Microsoft.EntityFrameworkCore;
 

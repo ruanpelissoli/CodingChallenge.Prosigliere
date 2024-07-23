@@ -1,4 +1,4 @@
-﻿using BloggingPlatform.Domain.BlogPosts;
+﻿using BloggingPlatform.Domain.Features.BlogPosts;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 

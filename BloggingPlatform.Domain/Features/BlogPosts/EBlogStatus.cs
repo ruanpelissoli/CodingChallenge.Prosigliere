@@ -1,4 +1,4 @@
-﻿namespace BloggingPlatform.Domain.BlogPosts;
+﻿namespace BloggingPlatform.Domain.Features.BlogPosts;
 public enum EBlogStatus
 {
     Draft = 1,

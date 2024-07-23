@@ -1,6 +1,6 @@
 ﻿using BloggingPlatform.Application.Comments;
 using BloggingPlatform.Domain.Abstractions;
-using BloggingPlatform.Domain.Comments;
+using BloggingPlatform.Domain.Features.Comments;
 using FluentAssertions;
 using Moq;
 

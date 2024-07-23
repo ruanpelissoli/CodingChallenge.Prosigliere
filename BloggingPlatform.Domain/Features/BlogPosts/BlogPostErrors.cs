@@ -1,6 +1,6 @@
 ﻿using BloggingPlatform.Domain.Common;
 
-namespace BloggingPlatform.Domain.BlogPosts;
+namespace BloggingPlatform.Domain.Features.BlogPosts;
 public static class BlogPostErrors
 {
     public static Error Empty = new(

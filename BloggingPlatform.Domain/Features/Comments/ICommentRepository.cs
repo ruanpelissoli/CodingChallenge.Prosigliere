@@ -1,7 +1,7 @@
 ﻿using BloggingPlatform.Domain.Abstractions;
-using BloggingPlatform.Domain.BlogPosts;
+using BloggingPlatform.Domain.Features.BlogPosts;
 
-namespace BloggingPlatform.Domain.Comments;
+namespace BloggingPlatform.Domain.Features.Comments;
 
 public interface ICommentRepository : IRepository<Comment, CommentId>
 {

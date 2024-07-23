@@ -1,5 +1,5 @@
 ﻿using BloggingPlatform.Domain.Abstractions;
-using BloggingPlatform.Domain.BlogPosts;
+using BloggingPlatform.Domain.Features.BlogPosts;
 
 namespace BloggingPlatform.Infrastructure.Cache;
 internal class CachedBlogPostRepository(

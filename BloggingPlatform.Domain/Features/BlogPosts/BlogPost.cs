@@ -1,8 +1,8 @@
 ﻿using BloggingPlatform.Domain.Abstractions;
-using BloggingPlatform.Domain.BlogPosts.Events;
-using BloggingPlatform.Domain.Comments;
+using BloggingPlatform.Domain.Features.BlogPosts.Events;
+using BloggingPlatform.Domain.Features.Comments;
 
-namespace BloggingPlatform.Domain.BlogPosts;
+namespace BloggingPlatform.Domain.Features.BlogPosts;
 
 public class BlogPost : Entity<BlogPostId>
 {

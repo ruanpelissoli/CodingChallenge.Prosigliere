@@ -1,5 +1,5 @@
-﻿using BloggingPlatform.Domain.BlogPosts;
-using BloggingPlatform.Domain.Common;
+﻿using BloggingPlatform.Domain.Common;
+using BloggingPlatform.Domain.Features.BlogPosts;
 using BloggingPlatform.Domain.Messaging;
 
 namespace BloggingPlatform.Application.BlogPosts;
