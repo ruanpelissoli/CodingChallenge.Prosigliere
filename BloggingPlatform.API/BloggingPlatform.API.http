@@ -10,7 +10,8 @@ POST {{API_HostAddress}}/posts/
 Content-Type: application/json
 
 {
-  "content": "This is a sample blog post content 2."
+  "title": "Sample Blog Post",
+  "content": "This is a sample blog post content."
 }
 
 ### Create a new comment for a blog post

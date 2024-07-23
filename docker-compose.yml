@@ -19,15 +19,20 @@ services:
     ports:
       - "6379:6379"
 
-  rabbitmq:
-    image: rabbitmq:3-management
-    container_name: rabbitmq
-    ports:
-      - "5672:5672"
-      - "15672:15672"
+  api:
+    build:
+      context: .
+      dockerfile: BloggingPlatform.API/Dockerfile
+    container_name: api
     environment:
-      RABBITMQ_DEFAULT_USER: blogging_user
-      RABBITMQ_DEFAULT_PASS: blogging_password
+      ASPNETCORE_ENVIRONMENT: Development
+      ConnectionStrings__Database: "Host=postgres;Port=5432;Database=blogging_db;Username=blogging_user;Password=blogging_password"
+      Redis__ConnectionString: "redis:6379"
+    ports:
+      - "5029:8080"
+    depends_on:
+      - postgres
+      - redis
 
 volumes:
   postgres_data:

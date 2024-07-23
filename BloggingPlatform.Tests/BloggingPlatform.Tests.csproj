@@ -19,6 +19,11 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\BloggingPlatform.Application\BloggingPlatform.Application.csproj" />
+    <ProjectReference Include="..\BloggingPlatform.Domain\BloggingPlatform.Domain.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Using Include="Xunit" />
   </ItemGroup>
 

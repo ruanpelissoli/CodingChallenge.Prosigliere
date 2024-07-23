@@ -3,6 +3,15 @@
 ** THIS PROJECT IS OVER ENGINEERED FOR THE PURPOSE OF DEMONSTRATING MY SKILLS **
 I know this project has a small scope, but I wanted to demonstrate my skills in a more complex project and I hope this does not backfires. Have fun.
 
+Steps to run the project:
+
+1. Clone the repository
+2. cd into the project folder
+3. Run `docker-compose up` command to start the containers
+4. At this point we should have the api, redis and postgresql running
+5. Access the application at `http://localhost:5029/swagger/index.html`
+6. It is possible to make http calls from BloggingPlatform.API.http file inside the project BloggingPlatform.API
+
 TODO:
 Add Users
 Authentication
